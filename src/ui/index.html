@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JsonMorph Studio | JSON Diff & TypeScript Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-group">
+        <span class="logo-icon">🧬</span>
+        <div>
+          <h1>JsonMorph Studio</h1>
+          <p class="subtitle">Zero-dependency JSON Diffing, Formatting & TypeScript Type Generator</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="badge">Port 3020</span>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="diff">🔍 JSON Diff</button>
+      <button class="nav-tab" data-tab="ts">📐 JSON to TypeScript</button>
+      <button class="nav-tab" data-tab="format">✨ Formatter & Minifier</button>
+    </div>
+
+    <main class="main-content">
+      <!-- Tab 1: JSON Diff Inspector -->
+      <section id="tab-diff" class="tab-view active">
+        <div class="diff-actions card">
+          <button id="runDiffBtn" class="btn btn-primary">⚡ Compare JSON Objects</button>
+          <div id="diffStats" class="diff-stats">Ready to compare</div>
+        </div>
+
+        <div class="dual-editor-grid">
+          <div class="card editor-card">
+            <h3>Original JSON (Left)</h3>
+            <textarea id="diffLeft" placeholder='{\n  "name": "Alice",\n  "age": 25\n}'></textarea>
+          </div>
+          <div class="card editor-card">
+            <h3>Modified JSON (Right)</h3>
+            <textarea id="diffRight" placeholder='{\n  "name": "Alice",\n  "age": 26,\n  "role": "admin"\n}'></textarea>
+          </div>
+        </div>
+
+        <div class="card diff-results-card">
+          <h3>Differences Summary</h3>
+          <div id="diffSummaryList" class="diff-summary-list">Click 'Compare JSON Objects' to view structural differences.</div>
+        </div>
+      </section>
+
+      <!-- Tab 2: JSON to TypeScript Generator -->
+      <section id="tab-ts" class="tab-view">
+        <div class="card ts-controls-card">
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="rootInterfaceName">Root Interface Name</label>
+              <input type="text" id="rootInterfaceName" value="UserProfile">
+            </div>
+            <button id="genTsBtn" class="btn btn-primary" style="align-self: flex-end;">📐 Generate TypeScript</button>
+            <button id="copyTsBtn" class="btn btn-secondary" style="align-self: flex-end;">📋 Copy TypeScript</button>
+          </div>
+        </div>
+
+        <div class="dual-editor-grid">
+          <div class="card editor-card">
+            <h3>Input JSON</h3>
+            <textarea id="tsInput" placeholder='{\n  "id": 1,\n  "name": "John Doe",\n  "email": "john@example.com",\n  "isActive": true,\n  "tags": ["developer", "admin"],\n  "address": {\n    "city": "London",\n    "zip": "SW1A"\n  }\n}'></textarea>
+          </div>
+          <div class="card editor-card">
+            <h3>Generated TypeScript Definitions</h3>
+            <pre id="tsOutput" class="code-preview">// Generated TypeScript will appear here</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 3: JSON Formatter & Minifier -->
+      <section id="tab-format" class="tab-view">
+        <div class="card format-controls-card">
+          <div class="form-row">
+            <button id="formatBtn" class="btn btn-primary">✨ Beautify JSON</button>
+            <button id="minifyBtn" class="btn btn-secondary">🗜️ Minify JSON</button>
+            <button id="copyFormatBtn" class="btn btn-outline">📋 Copy Result</button>
+          </div>
+        </div>
+
+        <div class="card editor-card">
+          <h3>JSON Content</h3>
+          <textarea id="formatInput" rows="18" placeholder='{"id":1,"name":"Alice","skills":["Node.js","React"]}'></textarea>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
