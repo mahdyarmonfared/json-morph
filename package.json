@@ -1,0 +1,30 @@
+{
+  "name": "json-morph",
+  "version": "1.0.0",
+  "description": "Zero-dependency JSON diffing, formatting, minification, and automatic TypeScript interface generator & Web Studio.",
+  "main": "src/core/index.js",
+  "bin": {
+    "json-morph": "bin/json-morph.js"
+  },
+  "scripts": {
+    "start": "node bin/json-morph.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "json",
+    "diff",
+    "json-diff",
+    "typescript",
+    "interface-generator",
+    "formatter",
+    "minifier",
+    "zero-dependency",
+    "cli",
+    "web-studio"
+  ],
+  "author": "Mahdyar Monfared",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
